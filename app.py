@@ -3,7 +3,7 @@ import json
 from PIL import Image
 
 import numpy as np
-import tensorflow as tf
+from keras.models import load_model
 import streamlit as st
 
 
@@ -32,7 +32,7 @@ model_path = os.path.join(working_dir, "plant_disease_model.h5")
 # -------------------------------
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model(model_path)
+    model = load_model(model_path)
     return model
 
 model = load_model()
